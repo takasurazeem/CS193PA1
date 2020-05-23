@@ -23,7 +23,7 @@ struct ContentView: View {
         .padding()
         .foregroundColor(.yellow)
         .font(viewModel.cards.count <= 4 ? .largeTitle : .title)
-        .aspectRatio(2/3, contentMode: .fit)
+        .aspectRatio(3/2, contentMode: .fit)
     }
 }
 
