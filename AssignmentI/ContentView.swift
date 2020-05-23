@@ -18,12 +18,12 @@ struct ContentView: View {
                 CardView(card: card).onTapGesture {
                     self.viewModel.choose(card: card)
                 }
+                .aspectRatio(2/3, contentMode: .fit)
             }
         }
         .padding()
         .foregroundColor(.yellow)
         .font(viewModel.cards.count <= 4 ? .largeTitle : .body)
-        .aspectRatio(3/2, contentMode: .fit)
     }
 }
 
@@ -31,7 +31,7 @@ struct CardView: View {
     var card: MemoryGame<String>.Card
     var body: some View {
         ZStack {
-            if !card.isFaceUp {
+            if card.isFaceUp {
                 RoundedRectangle(cornerRadius: 10).foregroundColor(.white)
                 RoundedRectangle(cornerRadius: 10).stroke()
                 Text(card.content)
