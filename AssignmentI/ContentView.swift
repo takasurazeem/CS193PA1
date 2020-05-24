@@ -31,7 +31,7 @@ struct CardView: View {
             if card.isFaceUp {
                 RoundedRectangle(cornerRadius: 10).foregroundColor(.white)
                 RoundedRectangle(cornerRadius: 10).stroke()
-                Text("🍇")
+                Text(card.content)
             } else {
                 RoundedRectangle(cornerRadius: 10)
             }
