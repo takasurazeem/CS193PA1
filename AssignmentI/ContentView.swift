@@ -23,12 +23,12 @@ struct ContentView: View {
         .font(viewModel.cards.count <= 4 ? .largeTitle : .body)
     }
 }
-
+// MARK: CardView
 struct CardView: View {
     var card: MemoryGame<String>.Card
     var body: some View {
         ZStack {
-            if card.isFaceUp {
+            if !card.isFaceUp {
                 RoundedRectangle(cornerRadius: 10).foregroundColor(.white)
                 RoundedRectangle(cornerRadius: 10).stroke()
                 Text(card.content)

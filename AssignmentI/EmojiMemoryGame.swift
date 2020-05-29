@@ -12,9 +12,17 @@ class EmojiMemoryGame {
     var model = createEmojiMemoryGame()
     
     static func createEmojiMemoryGame() -> MemoryGame<String> {
-        let emojis = ["🍇", "🍊", "🍏", "🍋", "🍍"]
-        return MemoryGame<String>(numberOfPairOfCards: Int.random(in: 2...emojis.count)) { pairIndex in
-            return emojis[pairIndex]
+        let emojis = ["🍇", "🍊", "🍏", "🍋", "🍍", "🧀", "🥐", "🍕", "🍓", "🍔", "🍟", "🧊"]
+        assert(emojis.count >= 12, "Have at least a dozen emojis")
+        
+        let minNumberOfPair = 2
+        assert(minNumberOfPair >= 2 && minNumberOfPair < emojis.count - 2 , "minNumberOfPair must be at least two")
+        
+        let maxNumberOfPair = 5
+        
+        let randomEmojisSubset = emojis.shuffled().prefix(maxNumberOfPair)
+        return MemoryGame<String>(numberOfPairOfCards: Int.random(in: minNumberOfPair...randomEmojisSubset.count)) { pairIndex in
+            return randomEmojisSubset[pairIndex]
         }
     }
     
